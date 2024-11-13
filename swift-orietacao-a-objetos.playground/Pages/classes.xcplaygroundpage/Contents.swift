@@ -1,7 +1,30 @@
-//: [Previous](@previous)
+class ContaCorrente {
+    var saldo: Double
+    var idConta: Int
+    
+    func sacar(_ valor: Double) {
+        saldo -= valor
+        print("Valor sacado da conta de ID \(idConta): - R$\(valor).")
+    }
+    
+    func depositar(_ valor: Double) {
+        saldo += valor
+        print("Valor depositado na conta de ID \(idConta): + R$\(valor).")
+    }
+    
+    init(idConta: Int) {
+        saldo = 0.0
+        self.idConta = idConta
+    }
+}
 
-import Foundation
+var contaCorrenteAriel = ContaCorrente(idConta: 1)
 
-var greeting = "Hello, playground"
+contaCorrenteAriel.depositar(1500)
 
-//: [Next](@next)
+var contaCorrenteGiovanna = ContaCorrente(idConta: 2)
+contaCorrenteGiovanna.depositar(200)
+contaCorrenteGiovanna.sacar(100)
+
+print("A conta corrente de ID \(contaCorrenteAriel.idConta) está com saldo de R$\(contaCorrenteAriel.saldo).")
+print("A conta corrente de ID \(contaCorrenteGiovanna.idConta) está com saldo de R$\(contaCorrenteGiovanna.saldo).")
