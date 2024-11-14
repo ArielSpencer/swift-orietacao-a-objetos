@@ -37,3 +37,34 @@ var contaCorrente = ContaCorrente(nome: "Spencer")
 contaCorrente.depositar(100)
 print(contaCorrente.saldo)
 contaCorrente.solicitarEmprestimo(2356.35)
+
+// Final (can't be inherited)
+final class Pessoa {
+    var nome: String
+    var sobrenome: String
+    
+    init(nome: String, sobrenome: String) {
+        self.nome = nome
+        self.sobrenome = sobrenome
+    }
+    
+    func nomeCompleto() -> String {
+        return "\(nome) \(sobrenome)"
+    }
+}
+
+let pessoa = Pessoa(nome: "Ariel", sobrenome: "Spencer")
+print("Nome completo: \(pessoa.nomeCompleto())")
+
+// Failure example
+//class Apelido: Pessoa {
+//    var nick = ""
+//    
+//    func recebeApelido(_ nick: String) {
+//        self.nick = nick
+//        print("O apelido de \(nomeCompleto()) é \(nick)")
+//    }
+//}
+//
+//var apelido = Apelido(nome: "Ariel", sobrenome: "Spencer")
+//apelido.recebeApelido("Spencer")
