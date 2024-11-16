@@ -35,3 +35,16 @@ class Vendedor: Empregado {
 
 let vendedor = Vendedor(nome: "Maria", salario: 5000.0, departamento: "Vendas")
 print("Vendedor \(vendedor.nome): Salário: \(vendedor.salario), Comissão: \(vendedor.percentualComissao(100))")
+
+func verificaTipo(_ empregado: Empregado) {
+    if let gerente = empregado as? Gerente {
+        print("O(a) \(gerente.nome) é um(a) gerente e está no departamento \(gerente.departamento).")
+    } else if let vendedor = empregado as? Vendedor {
+        print("O(a) \(vendedor.nome) é um(a) vendedor(a).")
+    } else {
+        print("O(a) funcionário(a) \(empregado.nome) é de um outro tipo.")
+    }
+}
+
+verificaTipo(vendedor)
+verificaTipo(gerente)
