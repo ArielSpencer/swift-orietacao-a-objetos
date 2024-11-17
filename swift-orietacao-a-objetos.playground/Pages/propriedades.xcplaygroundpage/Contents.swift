@@ -1,11 +1,11 @@
 class Conta {
     var saldo = 0.0 /*stored property*/ {
-        willSet { // property observers -> willSet
-            print("O saldo está sendo alterado! O seu novo valor será de: R$\(newValue)")
+        willSet(novoValor) { // property observers -> willSet
+            print("O saldo está sendo alterado! O seu novo valor será de: R$\(novoValor)")
         }
         
-        didSet { // property observers -> didSet
-            print("O saldo está sendo alterado! O seu novo valor antigo era de: R$\(oldValue)")
+        didSet(valorAntigo) { // property observers -> didSet
+            print("O saldo está sendo alterado! O seu novo valor antigo era de: R$\(valorAntigo)")
         }
     }
     var nome: String // stored property
