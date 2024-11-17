@@ -1,5 +1,13 @@
 class Conta {
-    var saldo = 0.0 // stored property
+    var saldo = 0.0 /*stored property*/ {
+        willSet { // property observers -> willSet
+            print("O saldo está sendo alterado! O seu novo valor será de: R$\(newValue)")
+        }
+        
+        didSet { // property observers -> didSet
+            print("O saldo está sendo alterado! O seu novo valor antigo era de: R$\(oldValue)")
+        }
+    }
     var nome: String // stored property
     
     static var taxaTransferencia = 0.1 // static property
