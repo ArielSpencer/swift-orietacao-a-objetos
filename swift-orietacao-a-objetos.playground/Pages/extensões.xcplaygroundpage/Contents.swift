@@ -45,3 +45,18 @@ contaAriel.transferir(contaGiovanna, 1000)
 
 print(contaAriel.saldo)
 print(contaGiovanna.saldo)
+
+// another example of extension
+func contaCaracteresString(_ texto: String) -> Int {
+    return texto.count
+}
+
+let texto = String("Hello World")
+contaCaracteresString(texto)
+
+extension String {
+    func contaCaracteresString() -> Int {
+        return self.count
+    }
+}
+print(texto.contaCaracteresString())
