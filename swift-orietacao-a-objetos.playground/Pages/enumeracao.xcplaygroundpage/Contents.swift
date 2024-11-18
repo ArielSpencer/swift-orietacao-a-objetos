@@ -31,3 +31,10 @@ class Conta {
 
 var contaAriel: Conta = .init(nome: "Ariel")
 contaAriel.pagamentoCartao(.pix)
+
+enum Mes {
+    case janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro
+}
+
+var novembro = Mes.novembro
+var fevereiro: Mes = .fevereiro
