@@ -29,3 +29,36 @@ print("Altura: \(pessoa.altura)m")
 print("Peso: \(pessoa.peso)kg")
 print("IMC: \(pessoa.IMC)")
 print("Adulto: \(pessoa.adulto ? "Sim" : "Não")")
+
+// property observers challenge
+
+class Colaborador {
+    var nome: String
+    var salario: Double {
+        willSet {
+            if newValue > salario {
+                print("Parabéns, você recebeu um aumento no salário.")
+            } else if newValue == salario {
+                print("Parece que não houve uma promoção dessa vez.")
+            }
+        }
+        
+        didSet {
+            if salario < oldValue {
+                salario = oldValue
+                print("O novo salário não pode ser menor do que era anteriormente. O salário se manteve em: R$\(salario)")
+            }
+        }
+    }
+    
+    init(nome: String, salario: Double) {
+        self.nome = nome
+        self.salario = salario
+    }
+}
+
+let colaborador = Colaborador(nome: "Ariel", salario: 3000)
+colaborador.salario = 3000
+colaborador.salario = 5300
+colaborador.salario = 4000
+print("Salário atual do colaborador \(colaborador.nome): R$\(colaborador.salario)")
